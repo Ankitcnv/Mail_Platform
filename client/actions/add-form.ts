@@ -10,8 +10,8 @@ const AddFormActions = (formData: FormData) => {
     if(email == 'admin@gmail.com' && password == 'admin'){
         redirect(`/home`)
         return {success: true}
-    }else{
-        
+    }else{  
+            
         return {success: false}
     }
     
