@@ -1,3 +1,4 @@
+import submitFormData from "@/actions/Submit-Form-Data";
 import React from "react";
 
 const Bulk = () => {
@@ -8,12 +9,12 @@ const Bulk = () => {
           <h1 className="text-2xl font-bold sm:text-3xl">Bulk Email Send.</h1>
 
           <p className="mt-4 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-            nulla eaque error neque ipsa culpa autem, at itaque nostrum!
+            Increase Your Productivity by Integrating with Bulk Email Feature.
           </p>
         </div>
-
-        <form action="#" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+        <form
+          action={submitFormData}
+          className="mx-auto mb-0 mt-8 max-w-md space-y-4">
           <div>
             <label htmlFor="email" className="sr-only">
               Email
@@ -23,7 +24,8 @@ const Bulk = () => {
               <input
                 type="text"
                 className="w-full rounded-lg p-4 pe-12 text-sm shadow-sm border-zinc-700 outline outline-1"
-                placeholder="Enter The title of the mail."
+                placeholder="Enter The subject of the mail."
+                name="subject"
               />
             </div>
           </div>
@@ -39,6 +41,7 @@ const Bulk = () => {
                   type="file"
                   className="w-full rounded-lg p-4 pe-12 text-sm shadow-sm border-zinc-700"
                   placeholder="Upload file."
+                  name="file"
                 />
               </div>
             </div>
