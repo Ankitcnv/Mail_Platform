@@ -6,7 +6,7 @@ const AddFormActions = (formData: FormData) => {
     const email = formData.get('email')
     const password = formData.get('password');
 
-    console.log({email, password})
+    console.log(" data: " , {email, password})
 
 }
 
