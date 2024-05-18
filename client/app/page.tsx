@@ -1,20 +1,6 @@
-"use client";
-import Image from "next/image";
-import db from "@/config/db";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import AddFormActions from "@/actions/add-form";
 
 export default function Home() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleFormSubmit = () => {
-    console.log({ email, password });
-    ///TODO: will handle the user verification.
-    router.push("/home");
-  };
-
   return (
     <div>
       <section className="bg-white">
@@ -53,7 +39,9 @@ export default function Home() {
                 different investments including stocks, bonds, real estate.
               </p>
 
-              <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+              <form
+                action={AddFormActions}
+                className="mt-8 grid grid-cols-6 gap-6">
                 <div className="col-span-6">
                   <label
                     htmlFor="Email"
@@ -66,10 +54,6 @@ export default function Home() {
                     type="email"
                     id="Email"
                     name="email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
                     className="mt-1 p-2 w-full h-10 rounded-md border-gray-200 text-sm text-gray-700 shadow-sm "
                   />
                 </div>
@@ -86,18 +70,12 @@ export default function Home() {
                     type="password"
                     id="Password"
                     name="password"
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
                     className="mt-1 p-2 w-full  h-10  rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                   />
                 </div>
 
                 <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-                  <button
-                    className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
-                    onClick={handleFormSubmit}>
+                  <button className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
                     Create an account
                   </button>
                 </div>
