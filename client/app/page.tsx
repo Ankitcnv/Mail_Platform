@@ -1,7 +1,20 @@
+"use client";
 import Image from "next/image";
 import db from "@/config/db";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default async function Home() {
+export default function Home() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleFormSubmit = () => {
+    console.log({ email, password });
+    ///TODO: will handle the user verification.
+    router.push("/home");
+  };
+
   return (
     <div>
       <section className="bg-white">
@@ -53,7 +66,11 @@ export default async function Home() {
                     type="email"
                     id="Email"
                     name="email"
-                    className="mt-1 w-full h-10 rounded-md border-gray-200 text-sm text-gray-700 shadow-sm "
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                    className="mt-1 p-2 w-full h-10 rounded-md border-gray-200 text-sm text-gray-700 shadow-sm "
                   />
                 </div>
 
@@ -69,12 +86,18 @@ export default async function Home() {
                     type="password"
                     id="Password"
                     name="password"
-                    className="mt-1 w-full  h-10  rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                    className="mt-1 p-2 w-full  h-10  rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                   />
                 </div>
 
                 <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-                  <button className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
+                  <button
+                    className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+                    onClick={handleFormSubmit}>
                     Create an account
                   </button>
                 </div>
