@@ -1,7 +1,7 @@
 import React from "react";
 import SubmitButton from "./Button";
-import AddFormActions from "@/actions/Login-Action";
 import Image from "next/image";
+import AddFormActions from "@/actions/Login-Action";
 
 const LoginPage = () => {
   return (
@@ -19,7 +19,7 @@ const LoginPage = () => {
           <div className="max-w-xl lg:max-w-3xl">
             <Image src={"/Logo.png"} alt="logo-image" width={130} height={50} />
             <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-              Welcome to Cnv Money "under new branch"
+              Welcome to Cnv Money
             </h1>
 
             <p className="mt-4 leading-relaxed text-gray-500">
