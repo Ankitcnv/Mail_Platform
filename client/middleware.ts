@@ -1,15 +1,15 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import { toast, Toaster } from "react-hot-toast";
 
-export function middleware(req: NextRequest){
-    if(!cookies().get('user')){
-        return NextResponse.redirect(
-            new URL('/', req.url)
-        )
-    }
-    return NextResponse.next();
+export async function middleware(req: NextRequest) {
+  if (!cookies().get("user")) {
+    await toast.error("Not Authenticated. MF");
+    return NextResponse.redirect(new URL("/?error=not_authenticated", req.url));
+  }
+  return NextResponse.next();
 }
 
 export const config = {
-    matcher: ['/dashboard', '/dashboard/bulk-mail-form']
-}
+  matcher: ["/dashboard", "/dashboard/bulk-mail-form"],
+};
