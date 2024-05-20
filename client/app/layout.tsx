@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 const rubik = Rubik({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Bulk Email Platform.",
-  description: "Bulk Email Platform.",
+  title: "Bulk Email Platform | CNV Money",
+  description: "Bulk Email Platform",
 };
 
 export default function RootLayout({
