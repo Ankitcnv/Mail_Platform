@@ -1,6 +1,6 @@
 "use client";
 import TempleteCard from "@/components/TempleteCard";
-import { Button } from "@/components/ui/button";
+import UploadTemplete from "@/components/UploadTemplete";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -18,7 +18,9 @@ const Home = () => {
           Choose Templete
         </h1>
       </div>
-
+      <div className="flex justify-end m-3 ">
+        <UploadTemplete />
+      </div>
       <div className="flex gap-3 flex-wrap shrink items-center justify-center">
         <TempleteCard />
         <TempleteCard />
