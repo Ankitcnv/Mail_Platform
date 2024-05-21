@@ -12,8 +12,8 @@ const Bulk = () => {
   const [loading, setLoading] = useState(false);
 
   const handleBroadcast = async (formData: FormData) => {
+    setLoading(true);
     try {
-      setLoading(true);
       await toast.loading("Boradcasting...", { id: "1" });
       const data = await submitFormData(formData);
       if (data.success) {
@@ -24,7 +24,7 @@ const Bulk = () => {
       toast.error("Error while Broadcast", { id: "1" });
     }
   };
-  if (loading) return <p>loaing...</p>;
+  console.log("loader value: ", loading);
   return (
     <div className="flex justify-center items-center mt-2">
       <div className="mx-auto max-w-scree-nxl px-4 py-16 sm:px-6 lg:px-8">
@@ -36,7 +36,11 @@ const Bulk = () => {
         </div>
         <div>
           <form
-            action={handleBroadcast}
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.target);
+              handleBroadcast(formData);
+            }}
             className="mx-auto mb-0 mt-8 max-w-md space-y-4">
             <div>
               <label htmlFor="email" className="sr-only">
@@ -61,13 +65,18 @@ const Bulk = () => {
               <div className="relative">
                 <div className="border border-zinc-900 rounded-lg">
                   <img
-                    className="w-full rounded-lg p-4 pe-12 text-sm shadow-sm border-zinc-700"
-                    src={url}
+                    className="w-full h-full rounded-lg p-4 pe-12 text-sm shadow-sm border-zinc-700"
+                    src={url as string}
                     name="file"
                   />
                 </div>
 
-                <input type="text" value={url} className="hidden" name="url" />
+                <input
+                  type="text"
+                  value={url as string}
+                  className="hidden"
+                  name="url"
+                />
               </div>
             </div>
 
