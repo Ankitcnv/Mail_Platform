@@ -15,7 +15,7 @@ export function TemplteForm() {
     try {
       const data = await Templete_upload_Action(formData);
       if (data.success) {
-        router.refresh();
+        window.location.reload();
       }
       setLoading(false);
     } catch (error) {
