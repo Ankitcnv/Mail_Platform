@@ -7,12 +7,12 @@ import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
   const router = useRouter();
-  const { query } = router;
+  //const { error } = router.query;
 
   // Handle the error here
-  if (error === "not_authenticated") {
-    // Do something, e.g., display an error message
-  }
+  //if (error === "not_authenticated") {
+  // Do something, e.g., display an error message
+  //}
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">

@@ -14,20 +14,20 @@ import { Input } from "@/components/ui/input";
 import { Templete_upload_Action } from "@/actions/Templete_upload_action";
 const UploadTemplete = () => {
   return (
-    <form action={Templete_upload_Action}>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline" className="bg-zinc-300">
-            Upload Templete
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
-          </DialogHeader>
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline" className="bg-zinc-300">
+          Upload Templete
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Template</DialogTitle>
+          <DialogDescription>
+            Make changes to Templete. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+        <form action={Templete_upload_Action}>
           <div className="gap-4 py-1 flex flex-col justify-between">
             <div className="grid grid-cols-4 items-center gap-2">
               <Label htmlFor="title" className="text-left">
@@ -73,9 +73,9 @@ const UploadTemplete = () => {
               Save
             </Button>
           </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </form>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 };
 
