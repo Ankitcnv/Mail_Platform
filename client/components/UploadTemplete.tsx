@@ -9,8 +9,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Templete_upload_Action } from "@/actions/Templete_upload_action";
 import { TemplteForm } from "./TemplteForm";
 const UploadTemplete = () => {
   return (

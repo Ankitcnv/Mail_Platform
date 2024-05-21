@@ -3,16 +3,19 @@ import React from "react";
 import SubmitButton from "./Button";
 import Image from "next/image";
 import AddFormActions from "@/actions/Login-Action";
-import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
-  const router = useRouter();
-  //const { error } = router.query;
+  const params = useSearchParams();
+  const error = params.get("error");
 
-  // Handle the error here
-  //if (error === "not_authenticated") {
-  // Do something, e.g., display an error message
-  //}
+  // this cause hydration error TODO: need to fix.
+  if (error == "not_authenticated") {
+    toast.error("Login Please");
+  } else {
+    null;
+  }
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -36,7 +39,9 @@ const LoginPage = () => {
               funds from clients, putting the capital to work through different
               investments including stocks, bonds, real estate.
             </p>
-
+            {error == "not_authenticated" && (
+              <p className="text-red-600">Not Authenticated.</p>
+            )}
             <form
               action={AddFormActions}
               className="mt-8 grid grid-cols-6 gap-6">
@@ -53,7 +58,7 @@ const LoginPage = () => {
                   id="Email"
                   name="email"
                   placeholder="Enter your Email."
-                  className="mt-1 p-2 w-full h-10 rounded-md border-gray-200 text-sm text-gray-700 shadow-sm"
+                  className="mt-1 p-2 w-full h-10 rounded-md border-gray-500 text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
@@ -70,7 +75,8 @@ const LoginPage = () => {
                   id="Password"
                   placeholder="Enter your Password."
                   name="password"
-                  className="mt-1 p-2 w-full  h-10  rounded-md border-red-500 bg-white text-sm text-gray-700 shadow-sm"
+                  className={`mt-1 p-2 w-full h-10 rounded-md border-red-500 bg-white text-sm text-gray-700 shadow-sm 
+                  }`}
                 />
               </div>
 

@@ -1,4 +1,6 @@
+"use client";
 import submitFormData from "@/actions/Submit-Form-Data";
+import { useSearchParams } from "next/navigation";
 
 const Bulk = () => (
   <div className="flex justify-center items-center mt-28">
@@ -19,6 +21,10 @@ const Bulk = () => (
 export default Bulk;
 
 function TemplteForm() {
+  const params = useSearchParams();
+  const title = params.get("title");
+  const url = params.get("url");
+  console.log({ title, url });
   return (
     <form
       action={submitFormData}
@@ -39,7 +45,7 @@ function TemplteForm() {
       </div>
 
       <div>
-        <label htmlFor="password" className="sr-only">
+        <label htmlFor="file" className="sr-only">
           Password
         </label>
 

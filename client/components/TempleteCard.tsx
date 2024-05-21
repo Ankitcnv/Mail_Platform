@@ -13,7 +13,9 @@ const TempleteCard = ({
     <div
       className="w-80 h-56 border bg-zinc-200 rounded-md hover:cursor-pointer"
       onClick={() => {
-        router.push("/dashboard/bulk-mail-form");
+        router.push(
+          `/dashboard/bulk-mail-form?title=${title}&url=${image_url}`
+        );
       }}>
       <img alt="" src={image_url} className="object-cover h-40 w-full p-3 " />
 
