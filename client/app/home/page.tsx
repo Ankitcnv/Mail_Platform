@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 
 const Home = () => {
   const [Templete, setTemplete] = useState<QueryResult | undefined | []>();
-  const [loading, setLoading] = useState<boolean>(true); // Start with loading state as true
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -18,14 +18,12 @@ const Home = () => {
       } catch (error) {
         console.error("Error fetching templates:", error);
       } finally {
-        setLoading(false); // Set loading state to false regardless of success or error
+        setLoading(false);
       }
     }
 
     fetchData();
   }, []);
-
-  console.log(Templete);
 
   return (
     <div className="p-2 m-3 ">
@@ -37,13 +35,20 @@ const Home = () => {
       <div className="flex justify-end m-3 ">
         <UploadTemplete />
       </div>
-      <div className="flex gap-3 flex-wrap shrink items-center justify-center">
+      <div className="flex gap-3 flex-wrap shrink items-center justify-start">
+        {Array.isArray(Templete) && Templete.length == 0 && (
+          <>
+            <h1 className="text-xl text-black flex justify-center items-center">
+              No Templete Found
+            </h1>
+          </>
+        )}
         {loading ? (
           <>
             {[...Array(5)].map((_, index) => (
               <div
                 key={index}
-                className="w-80 h-56 border bg-zinc-400 rounded-md hover:cursor-pointer animate-pulse">
+                className="w-80 h-56 border bg-zinc-300 rounded-md hover:cursor-pointer animate-pulse">
                 <div className="py-2 px-1">
                   <h3 className="sm:text-md text-sm font-medium text-gray-900 w-3 h-3 animate-bounce"></h3>
                 </div>

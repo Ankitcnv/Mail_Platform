@@ -5,6 +5,7 @@ import { writeFile } from "fs/promises";
 import { join } from "path";
 import db from "@/config/db";
 import QueryResult, { OkPacket } from "mysql2";
+import { revalidatePath } from "next/cache";
 
 cloudinary.config({
   cloud_name: process.env.Cloud_name,
@@ -34,13 +35,18 @@ export const Templete_upload_Action = async (formData: FormData) => {
 
     if ((result as OkPacket).affectedRows === 1) {
       console.log("Data inserted successfully.");
-      return true;
+
+      return {
+        success: true,
+      };
     } else {
       console.log("Failed to insert data.");
-      return false;
+      return {
+        success: false,
+      };
     }
   } else {
-    return "Cloudinary service error. Try after some time.";
+    return false;
   }
 
   return false;

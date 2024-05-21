@@ -9,52 +9,59 @@ const Bulk = () => (
           Increase Your Productivity by Integrating with Bulk Email Feature.
         </p>
       </div>
-      <div></div>
-      <form
-        action={submitFormData}
-        className="mx-auto mb-0 mt-8 max-w-md space-y-4">
-        <div>
-          <label htmlFor="email" className="sr-only">
-            Email
-          </label>
-
-          <div className="relative">
-            <input
-              type="text"
-              className="w-full rounded-lg p-4 pe-12 text-sm shadow-sm border-zinc-700 outline outline-1"
-              placeholder="Enter The subject of the mail."
-              name="subject"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="password" className="sr-only">
-            Password
-          </label>
-
-          <div className="relative">
-            <div className="border border-zinc-900 rounded-lg">
-              <input
-                type="file"
-                className="w-full rounded-lg p-4 pe-12 text-sm shadow-sm border-zinc-700"
-                placeholder="Upload file."
-                name="file"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between">
-          <button
-            type="submit"
-            className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
-            Send.
-          </button>
-        </div>
-      </form>
+      <div>
+        <TemplteForm />
+      </div>
     </div>
   </div>
 );
 
 export default Bulk;
+
+function TemplteForm() {
+  return (
+    <form
+      action={submitFormData}
+      className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+      <div>
+        <label htmlFor="email" className="sr-only">
+          Email
+        </label>
+
+        <div className="relative">
+          <input
+            type="text"
+            className="w-full rounded-lg p-4 pe-12 text-sm shadow-sm border-zinc-700 outline outline-1"
+            placeholder="Enter The subject of the mail."
+            name="subject"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="password" className="sr-only">
+          Password
+        </label>
+
+        <div className="relative">
+          <div className="border border-zinc-900 rounded-lg">
+            <input
+              type="file"
+              className="w-full rounded-lg p-4 pe-12 text-sm shadow-sm border-zinc-700"
+              placeholder="Upload file."
+              name="file"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between">
+        <button
+          type="submit"
+          className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
+          Send.
+        </button>
+      </div>
+    </form>
+  );
+}
