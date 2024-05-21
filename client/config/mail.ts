@@ -8,10 +8,12 @@ export const sendMessage = async ({
   username,
   email,
   subject,
+  url,
 }: {
   username: string;
   email: string;
   subject: FormDataEntryValue | null | string;
+  url: string;
 }) => {
   try {
     console.log("subject in email: ", subject);
@@ -25,7 +27,7 @@ export const sendMessage = async ({
       },
     });
 
-    const htmlContent = await BirthDay(username);
+    const htmlContent = await BirthDay(username, url);
 
     await transport.sendMail({
       from: process.env.USERMAIL,

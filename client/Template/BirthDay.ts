@@ -1,4 +1,4 @@
-export const BirthDay = async (username: string) => {
+export const BirthDay = async (username: string, url?: string) => {
   return `<!DOCTYPE html>
 <html lang="en">
 
@@ -141,7 +141,7 @@ export const BirthDay = async (username: string) => {
       <div class="content">
 
         <div class="img-container">
-          <img src="https://i.pinimg.com/564x/4f/85/a0/4f85a0b34f21fc9cbc2cd71f54f05985.jpg" alt="">
+          <img src=${url} alt="">
           <div class="title">
             <p class="title1">HAPPY BIRTHDAY</p>
             <p class="title2">From cnvmoney</p>
