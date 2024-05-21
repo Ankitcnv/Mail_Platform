@@ -23,6 +23,7 @@
     "lucide-react": "^0.378.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.9.7",
+    "net": "^1.0.2",
     "next": "14.2.3",
     "next-cloudinary": "^6.5.2",
     "nodemailer": "^6.9.13",
@@ -30,7 +31,8 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "@types/html-pdf": "^3.0.3",

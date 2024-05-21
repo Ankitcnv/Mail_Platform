@@ -1,7 +1,13 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const TempleteCard = () => {
+const TempleteCard = ({
+  title,
+  image_url,
+}: {
+  title: string;
+  image_url: string;
+}) => {
   const router = useRouter();
   return (
     <div
@@ -9,15 +15,11 @@ const TempleteCard = () => {
       onClick={() => {
         router.push("/dashboard/bulk-mail-form");
       }}>
-      <img
-        alt=""
-        src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        className="object-cover h-40 w-full p-3 "
-      />
+      <img alt="" src={image_url} className="object-cover h-40 w-full p-3 " />
 
       <div className="py-2 px-1">
         <h3 className="sm:text-md text-sm font-medium text-gray-900">
-          Email Template For TDS Service.
+          {title}
         </h3>
       </div>
     </div>

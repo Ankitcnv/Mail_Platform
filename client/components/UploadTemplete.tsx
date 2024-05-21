@@ -69,7 +69,7 @@ const UploadTemplete = () => {
           <DialogFooter>
             <Button
               type="submit"
-              className="bg-zinc-300 text-black hover:text-white">
+              className="bg-zinc-300 text-black hover:text-white mt-3">
               Save
             </Button>
           </DialogFooter>

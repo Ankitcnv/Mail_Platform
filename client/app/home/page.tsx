@@ -1,15 +1,31 @@
 "use client";
+import fetchTemplates from "@/actions/Fetch_Templetes";
 import TempleteCard from "@/components/TempleteCard";
 import UploadTemplete from "@/components/UploadTemplete";
-import { useRouter } from "next/navigation";
-import React from "react";
+import db from "@/config/db";
+import { QueryResult } from "mysql2";
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
-  const router = useRouter();
+  const [Templete, setTemplete] = useState<QueryResult | undefined | []>();
+  const [loading, setLoading] = useState<boolean>(true); // Start with loading state as true
 
-  const handleRedirect = () => {
-    router.push("/dashboard/bulk-mail-form");
-  };
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data: QueryResult | undefined = await fetchTemplates();
+        setTemplete(data);
+      } catch (error) {
+        console.error("Error fetching templates:", error);
+      } finally {
+        setLoading(false); // Set loading state to false regardless of success or error
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  console.log(Templete);
 
   return (
     <div className="p-2 m-3 ">
@@ -22,10 +38,28 @@ const Home = () => {
         <UploadTemplete />
       </div>
       <div className="flex gap-3 flex-wrap shrink items-center justify-center">
-        <TempleteCard />
-        <TempleteCard />
-        <TempleteCard />
-        <TempleteCard />
+        {loading ? (
+          <>
+            {[...Array(5)].map((_, index) => (
+              <div
+                key={index}
+                className="w-80 h-56 border bg-zinc-400 rounded-md hover:cursor-pointer animate-pulse">
+                <div className="py-2 px-1">
+                  <h3 className="sm:text-md text-sm font-medium text-gray-900 w-3 h-3 animate-bounce"></h3>
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          Array.isArray(Templete) &&
+          Templete.map((template, index) => (
+            <TempleteCard
+              key={template.id}
+              title={template?.title}
+              image_url={template.image_url}
+            />
+          ))
+        )}
       </div>
     </div>
   );
