@@ -10,13 +10,16 @@ const submitFormData = async (formData: FormData) => {
 
   const inputPairKeys: string[] = [];
   const inputPairValues: string[] = [];
+  let buttonCount: number = 0;
 
   for (const key of formData.keys()) {
     if (key.startsWith("key[")) {
+      buttonCount++;
       inputPairKeys.push(formData.get(key) as string);
     }
     if (key.startsWith("value[")) {
       inputPairValues.push(formData.get(key) as string);
+      buttonCount++;
     }
   }
 
@@ -38,6 +41,7 @@ const submitFormData = async (formData: FormData) => {
         key,
         value: inputPairValues[index],
       })),
+      buttonCount: buttonCount / 2,
     };
     const response = await sendMessage({ ...obj });
     responseLog.push(response);

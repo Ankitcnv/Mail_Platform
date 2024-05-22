@@ -8,6 +8,7 @@ export const sendMessage = async ({
   heading,
   textarea,
   button,
+  buttonCount,
 }: {
   username: string;
   email: string;
@@ -19,9 +20,11 @@ export const sendMessage = async ({
     key: string;
     value: string;
   }[];
+  buttonCount: number;
 }) => {
   try {
-    console.log(button);
+    console.log("button count: ", buttonCount);
+    console.log("button count: ", button);
     const transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
