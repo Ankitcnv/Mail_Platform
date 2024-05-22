@@ -164,13 +164,11 @@ export const BirthDay = async (
               ? "May your day overflow with love, laughter, and blessings. Here's to another fantastic year ahead! Enjoy!"
               : textarea
           }
-
         </p>
-
         ${button
           .map(
             (button) => `
-            <div class="social-icons" style="background-color: cadetblue; display: block;">
+            <div class="social-icons" style="background-color: rgb(231, 254, 255); display: inline;">
               <a class="social-icon" href="${button.value}" class="button" >${button.key}</a>
             </div>
           `
