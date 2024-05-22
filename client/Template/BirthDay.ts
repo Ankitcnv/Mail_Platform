@@ -2,7 +2,8 @@ export const BirthDay = async (
   username: string,
   url?: string,
   heading: string,
-  textarea: string
+  textarea: string,
+  button: string
 ) => {
   return `<!DOCTYPE html>
 <html lang="en">

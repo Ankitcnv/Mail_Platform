@@ -4,17 +4,29 @@ import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useRef } from "react";
+
+export interface InputPair {
+  key: string;
+  value: string;
+}
 
 const Bulk = () => {
   const params = useSearchParams();
   const title = params.get("title");
   const url = params.get("url");
   const [loading, setLoading] = useState(false);
-  const ref = useRef<HTMLFormElement>(null);
+
+  const [inputPairs, setInputPairs] = useState<InputPair[]>([
+    { key: "", value: "" },
+  ]);
 
   const handleBroadcast = async (formData: FormData) => {
     setLoading(true);
+    inputPairs.forEach((inputPair, index) => {
+      formData.append(`key[${index}]`, inputPair.key);
+      formData.append(`value[${index}]`, inputPair.value);
+    });
+
     try {
       await toast.loading("Boradcasting...", { id: "1" });
       const data = await submitFormData(formData);
@@ -27,8 +39,35 @@ const Bulk = () => {
     }
   };
 
+  const handleInputChange = (
+    index: number,
+    key: keyof InputPair,
+    value: string
+  ) => {
+    const newInputPairs = [...inputPairs];
+    newInputPairs[index][key] = value;
+    setInputPairs(newInputPairs);
+  };
+
+  const addInputPair = () => {
+    setInputPairs([...inputPairs, { key: "", value: "" }]);
+  };
+
+  const removeInputPair = (index: number) => {
+    const newInputPairs = [...inputPairs];
+    newInputPairs.splice(index, 1);
+    setInputPairs(newInputPairs);
+  };
+
+  // const handleSubmit = () => {
+  //   const formData = inputPairs.map((inputPair) => ({
+  //     key: inputPair.key.trim(),
+  //     value: inputPair.value.trim(),
+  //   }));
+  // };
+
   return (
-    <div className="flex justify-center items-center ">
+    <div className="flex justify-center items-center">
       <div className="mx-auto max-w-scree-nxl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-lg text-center">
           <h1 className="text-2xl font-bold sm:text-3xl">{title}</h1>
@@ -90,7 +129,42 @@ const Bulk = () => {
                 />
               </div>
             </div>
-            this is drop
+            <div>
+              {inputPairs.map((inputPair, index) => (
+                <div key={index} className="flex  gap-1 p-[2px] m-[3px]">
+                  <input
+                    type="text"
+                    value={inputPair.key}
+                    className="outline outline-1 outline-zinc-700 p-1"
+                    placeholder="button name"
+                    onChange={(e) =>
+                      handleInputChange(index, "key", e.target.value)
+                    }
+                  />
+                  <input
+                    type="text"
+                    value={inputPair.value}
+                    className="outline outline-1 outline-zinc-700 p-1 "
+                    placeholder="link."
+                    onChange={(e) =>
+                      handleInputChange(index, "value", e.target.value)
+                    }
+                  />
+                  <button
+                    type="button"
+                    className="bg-red-400 outline outline-1 outline-zinc-900 p-1 m-1 rounded-lg text-red-800"
+                    onClick={() => removeInputPair(index)}>
+                    Remove
+                  </button>
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={addInputPair}
+                className=" text-black text-sm hover:text-red-700">
+                Add Input
+              </button>
+            </div>
             <div className="flex items-center justify-between">
               <Button
                 type="submit"

@@ -8,6 +8,18 @@ const submitFormData = async (formData: FormData) => {
   const heading = formData.get("heading");
   const textarea = formData.get("textarea");
 
+  const inputPairKeys: string[] = [];
+  const inputPairValues: string[] = [];
+
+  for (const key of formData.keys()) {
+    if (key.startsWith("key[")) {
+      inputPairKeys.push(formData.get(key) as string);
+    }
+    if (key.startsWith("value[")) {
+      inputPairValues.push(formData.get(key) as string);
+    }
+  }
+
   const dbUsrs = await db.query("select * from users");
   const users: any = dbUsrs[0];
 
@@ -22,12 +34,14 @@ const submitFormData = async (formData: FormData) => {
       url: url,
       heading: heading,
       textarea: textarea,
+      button: inputPairKeys.map((key, index) => ({
+        key,
+        value: inputPairValues[index],
+      })),
     };
     const response = await sendMessage({ ...obj });
     responseLog.push(response);
   }
-
-  console.log(responseLog);
 
   return {
     success: true,

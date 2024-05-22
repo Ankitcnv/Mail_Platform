@@ -7,6 +7,7 @@ export const sendMessage = async ({
   url,
   heading,
   textarea,
+  button,
 }: {
   username: string;
   email: string;
@@ -14,8 +15,13 @@ export const sendMessage = async ({
   url: string;
   heading: string;
   textarea: string;
+  button: {
+    key: string;
+    value: string;
+  }[];
 }) => {
   try {
+    console.log(button);
     const transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -24,7 +30,13 @@ export const sendMessage = async ({
       },
     });
 
-    const htmlContent = await BirthDay(username, url, heading, textarea);
+    const htmlContent = await BirthDay(
+      username,
+      url,
+      heading,
+      textarea,
+      button
+    );
 
     const data = await transport.sendMail({
       from: process.env.USERMAIL,
