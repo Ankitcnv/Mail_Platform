@@ -1,4 +1,9 @@
-export const BirthDay = async (username: string, url?: string) => {
+export const BirthDay = async (
+  username: string,
+  url?: string,
+  heading: string,
+  textarea: string
+) => {
   return `<!DOCTYPE html>
 <html lang="en">
 
@@ -140,6 +145,9 @@ export const BirthDay = async (username: string, url?: string) => {
     </div>
       <div class="content">
 
+
+          <p class="details">${heading}</p>
+
         <div class="img-container">
           <img src=${url} alt="">
           <div class="title">
@@ -150,7 +158,11 @@ export const BirthDay = async (username: string, url?: string) => {
         </div>
         <p class="user">Hi ${username},</p>
         <p class="details">
-          "May your day overflow with love, laughter, and blessings. Here's to another fantastic year ahead! Enjoy!"
+          ${
+            !textarea
+              ? "May your day overflow with love, laughter, and blessings. Here's to another fantastic year ahead! Enjoy!"
+              : textarea
+          }
 
         </p>
         <span>- Team cnvmoney</span>
