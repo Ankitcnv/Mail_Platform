@@ -144,8 +144,6 @@ export const BirthDay = async (
      </a>
     </div>
       <div class="content">
-
-
           <p class="details">${heading}</p>
 
         <div class="img-container">

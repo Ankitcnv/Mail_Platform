@@ -26,7 +26,7 @@ const Bulk = () => {
       toast.error("Error while Broadcast", { id: "1" });
     }
   };
-  console.log("loader value: ", loading);
+
   return (
     <div className="flex justify-center items-center ">
       <div className="mx-auto max-w-scree-nxl px-4 py-16 sm:px-6 lg:px-8">
@@ -58,12 +58,11 @@ const Bulk = () => {
                 <input
                   type="text"
                   className="w-full rounded-lg p-1 text-sm shadow-sm border-zinc-700 outline outline-1"
-                  placeholder="Enter The heading. "
+                  placeholder="Enter The heading."
                   name="heading"
                 />
               </div>
             </div>
-
             <div>
               <div className="relative mb-2">
                 <div className="">
@@ -73,7 +72,6 @@ const Bulk = () => {
                     name="file"
                   />
                 </div>
-
                 <input
                   type="text"
                   value={url as string}
@@ -85,14 +83,14 @@ const Bulk = () => {
               <div className="relative">
                 <textarea
                   className="w-full rounded-lg p-1 text-sm shadow-sm border-zinc-700 outline outline-1"
-                  rows={6}
+                  rows={3}
                   cols={4}
                   placeholder="Main Text Area."
                   name="textarea"
                 />
               </div>
             </div>
-
+            this is drop
             <div className="flex items-center justify-between">
               <Button
                 type="submit"
