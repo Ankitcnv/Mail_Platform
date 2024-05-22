@@ -24,7 +24,7 @@ export const sendMessage = async ({
 }) => {
   try {
     console.log("button count: ", buttonCount);
-    console.log("button count: ", button);
+    console.log("butto: ", button);
     const transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -38,7 +38,8 @@ export const sendMessage = async ({
       url,
       heading,
       textarea,
-      button
+      button,
+      buttonCount
     );
 
     const data = await transport.sendMail({

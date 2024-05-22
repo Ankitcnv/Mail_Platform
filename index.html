@@ -1,15 +1,4 @@
-export const BirthDay = async (
-  username: string,
-  url?: string,
-  heading: string,
-  textarea: string,
-  button: {
-    key: string;
-    value: string;
-  }[],
-  buttonCount: number
-) => {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -119,6 +108,8 @@ export const BirthDay = async (
 
       .title {
         line-height: 3px;
+
+
       }
 
       .title1 {
@@ -157,7 +148,7 @@ export const BirthDay = async (
           </div>
           <div class="" style="height: 2px; background-color: brown;"></div>
         </div>
-        <p class="user">Hi, ${username}</p>
+        <p class="user">Hi ${username},</p>
         <p class="details">
           ${
             !textarea
@@ -166,19 +157,9 @@ export const BirthDay = async (
           }
 
         </p>
-
-        ${button
-          .map(
-            (button) => `
-            <div class="social-icons" style="background-color: cadetblue; display: block;">
-              <a class="social-icon" href="${button.value}" class="button" >${button.key}</a>
-            </div>
-          `
-          )
-          .join("")} 
-        <span> -Team cnvmoney</span>
+        <span>- Team cnvmoney</span>
       </div>
-      <div class="social-icons">
+      <div class="social-icons" style="background-color: cadetblue; display: block;">
         <a class="social-icon" href="https://www.youtube.com/@cnvmoney"><img
             src="https://download-form-website.s3.ap-south-1.amazonaws.com/Website+Content/social/youtube.png"
             alt="Youtube" /></a>
@@ -196,8 +177,9 @@ export const BirthDay = async (
     </div>
     </div>
   </body>
+          <script>
+            {
 
-</html>`;
-};
-
-export default BirthDay;
+            }
+          </script>
+</html>

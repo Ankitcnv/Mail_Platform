@@ -28,10 +28,10 @@ const Bulk = () => {
     });
 
     try {
-      await toast.loading("Boradcasting...", { id: "1" });
+      toast.loading("Boradcasting...", { id: "1" });
       const data = await submitFormData(formData);
       if (data.success) {
-        await toast.success("Done.", { id: "1" });
+        toast.success("Done.", { id: "1" });
         setLoading(false);
       }
     } catch (error) {
@@ -135,7 +135,7 @@ const Bulk = () => {
                   <input
                     type="text"
                     value={inputPair.key}
-                    className="outline outline-1 outline-zinc-700 p-1"
+                    className="outline outline-1 outline-zinc-700 p-1 rounded-md"
                     placeholder="button name"
                     onChange={(e) =>
                       handleInputChange(index, "key", e.target.value)
@@ -144,7 +144,7 @@ const Bulk = () => {
                   <input
                     type="text"
                     value={inputPair.value}
-                    className="outline outline-1 outline-zinc-700 p-1 "
+                    className="outline outline-1 outline-zinc-700 p-1 rounded-md "
                     placeholder="link."
                     onChange={(e) =>
                       handleInputChange(index, "value", e.target.value)
@@ -162,7 +162,7 @@ const Bulk = () => {
                 type="button"
                 onClick={addInputPair}
                 className=" text-black text-sm hover:text-red-700">
-                Add Input
+                Add Button
               </button>
             </div>
             <div className="flex items-center justify-between">
