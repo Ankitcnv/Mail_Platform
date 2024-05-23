@@ -14,6 +14,7 @@ export function TemplteForm() {
   const handleSubmit = async (formData: FormData) => {
     try {
       const data = await Templete_upload_Action(formData);
+      // @ts-ignore
       if (data.success) {
         window.location.reload();
       }
