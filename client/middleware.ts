@@ -4,7 +4,9 @@ import { toast, Toaster } from "react-hot-toast";
 
 export async function middleware(req: NextRequest) {
   if (!cookies().get("user")) {
-    return NextResponse.redirect(new URL("/?error=not_authenticated", req.url));
+    return NextResponse.redirect(
+      new URL("/login/?error=not_authenticated", req.url)
+    );
   }
   return NextResponse.next();
 }

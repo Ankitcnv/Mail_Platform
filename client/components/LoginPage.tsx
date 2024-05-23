@@ -31,10 +31,10 @@ const LoginPage = () => {
           <div className="max-w-xl lg:max-w-3xl">
             <Image src={"/Logo.png"} alt="logo-image" width={130} height={50} />
             <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-              Welcome to Cnv Money
+              Welcome to CNV Money
             </h1>
 
-            <p className="mt-4 leading-relaxed text-gray-500">
+            <p className="mt-4 leading-relaxed text-gray-500 text-sm sm:text-xl">
               An asset management company (AMC) is a firm that invests pooled
               funds from clients, putting the capital to work through different
               investments including stocks, bonds, real estate.

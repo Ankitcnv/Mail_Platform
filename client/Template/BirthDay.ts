@@ -1,13 +1,13 @@
 export const BirthDay = async (
   username: string,
   url?: string,
-  heading: string,
-  textarea: string,
-  button: {
+  heading?: string,
+  textarea?: string,
+  button?: {
     key: string;
     value: string;
   }[],
-  buttonCount: number
+  buttonCount?: number
 ) => {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -166,8 +166,8 @@ export const BirthDay = async (
           }
         </p>
         ${button
-          .map(
-            (button) => `
+          ?.map(
+            (button: { key: string; value: string }) => `
             <div class="social-icons" style="background-color: rgb(231, 254, 255); display: inline;">
               <a class="social-icon" href="${button.value}" class="button" >${button.key}</a>
             </div>
