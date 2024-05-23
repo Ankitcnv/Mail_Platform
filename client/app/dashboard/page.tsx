@@ -28,9 +28,9 @@ const Home = () => {
   return (
     <div className="p-2 m-3 ">
       <div className="flex justify-center p-5 ">
-        <h1 className="hover:font-bold transition ease-in-out delay-150">
+        {/* <h1 className="hover:font-bold transition ease-in-out delay-150">
           Choose Templete
-        </h1>
+        </h1> */}
       </div>
       <div className="flex justify-end m-3 ">
         <UploadTemplete />

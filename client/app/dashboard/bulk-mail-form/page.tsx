@@ -67,7 +67,7 @@ const Bulk = () => {
   // };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-8">
       <div className="mx-auto max-w-scree-nxl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-lg text-center">
           <h1 className="text-2xl font-bold sm:text-3xl">{title}</h1>
