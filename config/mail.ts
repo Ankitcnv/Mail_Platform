@@ -12,19 +12,17 @@ export const sendMessage = async ({
 }: {
   username: string;
   email: string;
-  subject: FormDataEntryValue | null | string;
-  url: string;
-  heading: string;
-  textarea: string;
-  button: {
+  subject?: FormDataEntryValue | null | string;
+  url?: string;
+  heading?: string;
+  textarea?: string;
+  button?: {
     key: string;
     value: string;
   }[];
-  buttonCount: number;
+  buttonCount?: number;
 }) => {
   try {
-    console.log("button count: ", buttonCount);
-    console.log("butto: ", button);
     const transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -50,6 +48,7 @@ export const sendMessage = async ({
       html: htmlContent,
     });
     const success = data.response && data.response.includes("OK");
+    console.log("mail is sent");
     return { success, response: data.response };
   } catch (error) {
     console.log(error);

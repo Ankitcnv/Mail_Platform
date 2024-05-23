@@ -147,7 +147,9 @@ export const BirthDay = async (
      </a>
     </div>
       <div class="content">
-          <p class="details">${heading}</p>
+          <p class="details">${
+            !heading ? `Happy Birthday! , ${username}` : heading
+          }</p>
 
         <div class="img-container">
           <img src=${url} alt="">
@@ -165,15 +167,19 @@ export const BirthDay = async (
               : textarea
           }
         </p>
-        ${button
-          ?.map(
-            (button: { key: string; value: string }) => `
+        ${
+          button
+            ? button
+                ?.map(
+                  (button: { key: string; value: string }) => `
             <div class="social-icons" style="background-color: rgb(231, 254, 255); display: inline;">
               <a class="social-icon" href="${button.value}" class="button" >${button.key}</a>
             </div>
           `
-          )
-          .join("")} 
+                )
+                .join("")
+            : ""
+        } 
         <span> -Team cnvmoney</span>
       </div>
       <div class="social-icons">

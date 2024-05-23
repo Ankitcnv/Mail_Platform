@@ -40,22 +40,22 @@ function NavBar() {
               navbar ? "p-12 md:p-0 block" : "hidden"
             }`}>
             <ul className="h-screen md:h-auto items-center justify-center  md:flex ">
-              <li className="sm:p-2 sm:m-2 rounded-md  text-md text-zinc-900 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-slate-500  hover:text-slate-400 ">
+              <li className="sm:p-2 sm:m-2 rounded-md  text-md text-zinc-900 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-slate-300  hover:text-zinc-900 ">
                 <Link href="/dashboard" onClick={() => setNavbar(!navbar)}>
                   Dashboard
                 </Link>
               </li>
-              <li className="sm:p-2 sm:m-2 rounded-md  text-md text-zinc-900 py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-slate-500   hover:text-slate-400 ">
+              <li className="sm:p-2 sm:m-2 rounded-md  text-md text-zinc-900 py-2 px-6 text-center  border-b-2 md:border-b-0 hover:bg-slate-300    hover:text-zinc-900 ">
                 <Link href="#blog" onClick={() => setNavbar(!navbar)}>
                   Blogs
                 </Link>
               </li>
-              <li className="sm:p-2 sm:m-2 rounded-md text-md text-zinc-900 py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-slate-500  hover:text-slate-400 ">
+              <li className="sm:p-2 sm:m-2 rounded-md text-md text-zinc-900 py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-slate-300   hover:text-zinc-900 ">
                 <Link href="#contact" onClick={() => setNavbar(!navbar)}>
                   Contact
                 </Link>
               </li>
-              <li className="sm:p-2 sm:m-2 rounded-md text-md text-zinc-900 py-2 px-6 text-center  border-b-2 md:border-b-0 hover:bg-slate-500  hover:text-slate-400 ">
+              <li className="sm:p-2 sm:m-2 rounded-md text-md text-zinc-900 py-2 px-6 text-center  border-b-2 md:border-b-0 hover:bg-slate-300  hover:text-zinc-900 ">
                 <Link href="#projects" onClick={() => setNavbar(!navbar)}>
                   Projects
                 </Link>
