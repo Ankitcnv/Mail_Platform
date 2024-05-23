@@ -20,12 +20,12 @@ function NavBar() {
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}>
                 {navbar ? (
-                  <Image src="/close.svg" width={30} height={30} alt="logo" />
+                  <Image src="/close.svg" width={20} height={20} alt="logo" />
                 ) : (
                   <Image
                     src="/menu.svg"
-                    width={30}
-                    height={30}
+                    width={20}
+                    height={20}
                     alt="logo"
                     className="focus:border-none active:border-none text-zinc-200"
                   />
@@ -41,8 +41,8 @@ function NavBar() {
             }`}>
             <ul className="h-screen md:h-auto items-center justify-center  md:flex ">
               <li className="sm:p-2 sm:m-2 rounded-md  text-md text-zinc-900 py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-slate-500  hover:text-slate-400 ">
-                <Link href="#about" onClick={() => setNavbar(!navbar)}>
-                  About
+                <Link href="/dashboard" onClick={() => setNavbar(!navbar)}>
+                  Dashboard
                 </Link>
               </li>
               <li className="sm:p-2 sm:m-2 rounded-md  text-md text-zinc-900 py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-slate-500   hover:text-slate-400 ">
