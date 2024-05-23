@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import type { Metadata } from "next";
 import { Inter, Rubik } from "next/font/google";
@@ -22,7 +23,7 @@ export default function RootLayout({
         <NavBar />
         <Toaster position="top-right" />
         {children}
-        <footer>Footer</footer>
+        <Footer />
       </body>
     </html>
   );
