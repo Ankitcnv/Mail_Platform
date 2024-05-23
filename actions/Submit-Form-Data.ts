@@ -12,7 +12,8 @@ const submitFormData = async (formData: FormData) => {
   const inputPairValues: string[] = [];
   let buttonCount: number = 0;
 
-  for (const key of formData.keys()) {
+  const formDataKeys = Array.from(formData.keys());
+  for (const key of formDataKeys) {
     if (key.startsWith("key[")) {
       buttonCount++;
       inputPairKeys.push(formData.get(key) as string);
