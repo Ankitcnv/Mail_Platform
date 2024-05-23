@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import type { Metadata } from "next";
 import { Inter, Rubik } from "next/font/google";
 import { toast, Toaster } from "react-hot-toast";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 const rubik = Rubik({ subsets: ["latin"], weight: "400" });
@@ -20,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-        <NavBar />
-        <Toaster position="top-right" />
-        {children}
-        <Footer />
+        <Suspense>
+          <NavBar />
+          <Toaster position="top-right" />
+          {children}
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );

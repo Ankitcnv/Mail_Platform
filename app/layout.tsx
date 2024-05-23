@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Rubik } from "next/font/google";
 import { toast, Toaster } from "react-hot-toast";
-
+import { Suspense } from "react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-        <Toaster position="top-right" />
-        {children}
+        <Suspense>
+          <Toaster position="top-right" />
+          {children}
+        </Suspense>
       </body>
     </html>
   );
