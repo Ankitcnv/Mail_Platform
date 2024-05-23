@@ -79,6 +79,7 @@ const Bulk = () => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              // @ts-ignore
               const formData = new FormData(e.target);
               handleBroadcast(formData);
             }}
@@ -108,6 +109,7 @@ const Bulk = () => {
                   <img
                     className="w-56 h-56 p-2 object-cover border border-zinc-900 rounded-lg text-sm shadow-sm items-center justify-center"
                     src={url as string}
+                    // @ts-ignore
                     name="file"
                   />
                 </div>

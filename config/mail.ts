@@ -47,8 +47,10 @@ export const sendMessage = async ({
       subject: subject || "Exciting Opportunity: Join Our Development Team!",
       html: htmlContent,
     });
+    // @ts-ignore
     const success = data.response && data.response.includes("OK");
     console.log("mail is sent");
+    // @ts-ignore
     return { success, response: data.response };
   } catch (error) {
     console.log(error);

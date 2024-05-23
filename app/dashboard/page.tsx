@@ -59,8 +59,11 @@ const Home = () => {
           Array.isArray(Templete) &&
           Templete.map((template, index) => (
             <TempleteCard
+              // @ts-ignore
               key={template.id}
+              // @ts-ignore
               title={template?.title}
+              // @ts-ignore
               image_url={template.image_url}
             />
           ))
