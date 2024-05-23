@@ -6,7 +6,7 @@ const AddFormActions = (formData: FormData) => {
   const password = formData.get("password");
   if (email == "admin@gmail.com" && password == "admin") {
     cookies().set("user", "jwt-secret"); // TODO: NEED TO FIX
-    redirect(`/home`);
+    redirect(`/dashboard`);
   } else {
     redirect("/");
     return { success: false };
