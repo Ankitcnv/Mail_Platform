@@ -44,6 +44,7 @@ const submitFormData = async (formData: FormData) => {
       })),
       buttonCount: buttonCount / 2,
     };
+    // @ts-ignore
     const response = await sendMessage({ ...obj });
     responseLog.push(response);
   }
