@@ -56,8 +56,10 @@ function NavBar() {
                 </Link>
               </li>
               <li className="sm:p-2 sm:m-2 rounded-md text-md text-zinc-900 py-2 px-6 text-center  border-b-2 md:border-b-0 hover:bg-slate-300  hover:text-zinc-900 ">
-                <Link href="#projects" onClick={() => setNavbar(!navbar)}>
-                  Projects
+                <Link
+                  href="/dashboard/about"
+                  onClick={() => setNavbar(!navbar)}>
+                  About
                 </Link>
               </li>
             </ul>
