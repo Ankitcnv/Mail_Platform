@@ -25,12 +25,12 @@ const LoginPage = () => {
             <img
               alt=""
               src="/home.svg"
-              className="absolute inset-0 object-cover w-[800px] h-full"
+              className="absolute inset-0 object-cover w-[800px] h-full hidden sm:block"
             />
           </aside>
 
           <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
-            <div className="max-w-xl lg:max-w-3xl">
+            <div className="max-w-xl lg:max-w-3xl ">
               <Image
                 src={"/Logo.png"}
                 alt="logo-image"
