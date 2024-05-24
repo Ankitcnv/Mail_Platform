@@ -81,6 +81,7 @@ const Bulk = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
+                //@ts-ignore
                 const formData = new FormData(e.target);
                 handleBroadcast(formData);
               }}
