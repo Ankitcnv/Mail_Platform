@@ -35,7 +35,6 @@ export const Templete_upload_Action = async (formData: FormData) => {
 
     if ((result as OkPacket).affectedRows === 1) {
       console.log("Data inserted successfully.");
-
       return {
         success: true,
       };
@@ -48,6 +47,4 @@ export const Templete_upload_Action = async (formData: FormData) => {
   } else {
     return false;
   }
-
-  return false;
 };

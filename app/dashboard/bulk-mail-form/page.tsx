@@ -69,8 +69,8 @@ const Bulk = () => {
 
   return (
     <Suspense>
-      <div className="flex justify-center items-center mt-8">
-        <div className="mx-auto max-w-scree-nxl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="flex justify-center items-center mt-10 bg-slate-100">
+        <div className="mx-auto max-w-screen-md px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-lg text-center">
             <h1 className="text-2xl font-bold sm:text-3xl">{title}</h1>
             <p className="mt-4 mb-3 text-gray-500">
@@ -81,7 +81,6 @@ const Bulk = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                // @ts-ignore
                 const formData = new FormData(e.target);
                 handleBroadcast(formData);
               }}
@@ -106,13 +105,14 @@ const Bulk = () => {
                 </div>
               </div>
               <div>
-                <div className="relative mb-2">
-                  <div className="">
+                <div className="relative mb-1">
+                  <div className="overflow-hidden rounded-lg">
                     <img
-                      className="w-56 h-56 p-2 object-cover border border-zinc-900 rounded-lg text-sm shadow-sm items-center justify-center"
+                      className="w-full p-2 object-cover border border-zinc-900 rounded-lg text-sm shadow-sm"
                       src={url as string}
                       // @ts-ignore
                       name="file"
+                      alt="Image Preview"
                     />
                   </div>
                   <input
@@ -135,37 +135,39 @@ const Bulk = () => {
               </div>
               <div>
                 {inputPairs.map((inputPair, index) => (
-                  <div key={index} className="flex  gap-1 p-[2px] m-[3px]">
-                    <input
-                      type="text"
-                      value={inputPair.key}
-                      className="outline outline-1 outline-zinc-700 p-1 rounded-md"
-                      placeholder="button name"
-                      onChange={(e) =>
-                        handleInputChange(index, "key", e.target.value)
-                      }
-                    />
-                    <input
-                      type="text"
-                      value={inputPair.value}
-                      className="outline outline-1 outline-zinc-700 p-1 rounded-md "
-                      placeholder="link."
-                      onChange={(e) =>
-                        handleInputChange(index, "value", e.target.value)
-                      }
-                    />
+                  <>
+                    <div key={index} className="flex flex-row gap-1 flex-wrap ">
+                      <input
+                        type="text"
+                        value={inputPair.key}
+                        className="outline outline-1 outline-zinc-700 p-1 rounded-md"
+                        placeholder="Button name"
+                        onChange={(e) =>
+                          handleInputChange(index, "key", e.target.value)
+                        }
+                      />
+                      <input
+                        type="text"
+                        value={inputPair.value}
+                        className="outline outline-1 outline-zinc-700 p-1 rounded-md "
+                        placeholder="Link."
+                        onChange={(e) =>
+                          handleInputChange(index, "value", e.target.value)
+                        }
+                      />
+                    </div>
                     <button
                       type="button"
-                      className="bg-red-400 outline outline-1 outline-zinc-900 p-1 m-1 rounded-lg text-red-800"
+                      className="bg-red-400 outline outline-1 outline-zinc-900 my-1 p-1  rounded-lg text-red-800"
                       onClick={() => removeInputPair(index)}>
                       Remove
                     </button>
-                  </div>
+                  </>
                 ))}
                 <button
                   type="button"
                   onClick={addInputPair}
-                  className=" text-black text-sm hover:text-red-700">
+                  className=" text-black text-sm hover:text-red-700 mx-3">
                   Add Button
                 </button>
               </div>
@@ -173,7 +175,7 @@ const Bulk = () => {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
+                  className="w-full rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
                   {loading ? "Broadcast...." : "Broadcast"}
                 </Button>
               </div>
