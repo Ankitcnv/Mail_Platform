@@ -137,11 +137,11 @@ const Bulk = () => {
               <div>
                 {inputPairs.map((inputPair, index) => (
                   <>
-                    <div key={index} className="flex flex-row gap-1 flex-wrap ">
+                    <div key={index} className="flex flex-row flex-wrap">
                       <input
                         type="text"
                         value={inputPair.key}
-                        className="outline outline-1 outline-zinc-700 p-1 rounded-md"
+                        className="outline outline-1 outline-zinc-700 p-1 rounded-md w-1/2"
                         placeholder="Button name"
                         onChange={(e) =>
                           handleInputChange(index, "key", e.target.value)
@@ -150,7 +150,7 @@ const Bulk = () => {
                       <input
                         type="text"
                         value={inputPair.value}
-                        className="outline outline-1 outline-zinc-700 p-1 rounded-md "
+                        className="outline outline-1 outline-zinc-700 p-1 rounded-md w-1/2"
                         placeholder="Link."
                         onChange={(e) =>
                           handleInputChange(index, "value", e.target.value)
@@ -159,7 +159,7 @@ const Bulk = () => {
                     </div>
                     <button
                       type="button"
-                      className="bg-red-400 outline outline-1 outline-zinc-900 my-1 p-1  rounded-lg text-red-800"
+                      className="bg-red-400 outline outline-1 outline-zinc-900 my-1 p-1 text-sm rounded-lg text-red-800"
                       onClick={() => removeInputPair(index)}>
                       Remove
                     </button>
