@@ -51,6 +51,10 @@ const Bulk = () => {
   };
 
   const addInputPair = () => {
+    if (inputPairs.length === 4) {
+      toast.error("Not More Than 4 Buttons");
+      return;
+    }
     setInputPairs([...inputPairs, { key: "", value: "" }]);
   };
 
