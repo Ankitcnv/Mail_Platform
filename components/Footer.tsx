@@ -14,7 +14,7 @@ const Footer = () => {
               className="items-center justify-center flex mx-auto"
             />
             <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-              Welcome to CNV Money
+              CNV Money
             </h1>
           </div>
         </div>
