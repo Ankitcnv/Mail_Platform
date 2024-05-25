@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "cloudinary": "^2.2.0",
     "dotenv": "^16.4.5",
     "html-pdf": "^3.0.1",
     "label": "^0.2.2",
