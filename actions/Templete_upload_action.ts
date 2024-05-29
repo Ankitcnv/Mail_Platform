@@ -14,19 +14,23 @@ cloudinary.config({
 });
 
 export const Templete_upload_Action = async (formData: FormData) => {
+  console.log(formData);
+
   const title = formData.get("title");
   const image = formData.get("image") as File;
   const mailinput = formData.get("mailinput");
   const tempDir = tmpdir();
   const tempFilePath = join(tempDir, image.name);
+
   const fileContent = await image.arrayBuffer();
   await writeFile(tempFilePath, Buffer.from(fileContent));
+
   const uploadResponse = await cloudinary.uploader.upload(tempFilePath, {
     upload_preset: "s9y39nb8",
   });
 
   if (uploadResponse.url) {
-    const query = `
+    const query = ` 
       INSERT INTO templete (title, image_url, mail_input)
       VALUES (?, ?, ?)
     `;

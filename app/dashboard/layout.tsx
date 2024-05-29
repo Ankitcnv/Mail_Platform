@@ -19,15 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={rubik.className}>
-        <Suspense>
-          <NavBar />
-          <Toaster position="top-right" />
-          {children}
-          <Footer />
-        </Suspense>
-      </body>
-    </html>
+    <>
+      <NavBar />
+      <Toaster position="top-right" />
+      {children}
+      <Footer />
+    </>
   );
 }
